@@ -1,0 +1,31 @@
+$grid-columns: 12;
+$grid-gutter-width: 20px;
+
+@import "~bootstrap/scss/bootstrap";
+
+.pokemons {
+  padding: 50px 20px;
+}
+
+.pokemons-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.button {
+  flex: 1 1 auto;
+  padding: 12px 0;
+  margin-bottom: 60px;
+  background-color: #4DA4EA;
+  border: solid 1px #4DA4EA;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+  }
+}
