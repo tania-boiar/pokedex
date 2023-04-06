@@ -4,13 +4,15 @@ import { PokemonList } from '../components/PokemonList';
 import { getDetails } from '../api/fetchDetails';
 import { PokemonDetails } from '../types/PokemonDetails';
 import './PokemonsPage.scss';
+import { PokemonDetailsCard } from '../components/PokemonDetailsCard';
 
 export const PokemonsPage: React.FC = () => {
   const [pokemons, setPokemons] = useState<PokemonDetails[]>([]);
   const [limit] = useState<number>(12);
   const [offset, setOffset] = useState<number>(0)
   const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [pokemon, setPokemon] = useState<PokemonDetails>();
 
 
   const loadCards = async () => {
@@ -66,14 +68,23 @@ export const PokemonsPage: React.FC = () => {
 
       <div className="container">
         <div className="row">
-          <div className="col-xl-8 col-lg-8 col-md-10 col-sm-12">
-            <PokemonList pokemons={pokemons} isError={isError} isLoading={isLoading} />
+          <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 ">
+            <PokemonList
+              pokemons={pokemons}
+              isError={isError}
+              isLoading={isLoading}
+              setPokemon={setPokemon}
+            />
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-14 col-sm-12"></div>
+          <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 flex-wrap">
+            {pokemon && <PokemonDetailsCard pokemon={pokemon} />}
+          </div>
         </div>
+
+        
         {!isLoading && !isError && !!pokemons.length &&
           <button
-            className="button col-xl-8 col-lg-8 col-md-10 col-sm-12"
+            className="button col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12"
             onClick={handleCardsOffset}>
               Load more
           </button>

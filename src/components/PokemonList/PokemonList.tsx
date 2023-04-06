@@ -9,27 +9,31 @@ type Props = {
   pokemons: PokemonDetails[];
   isError: boolean;
   isLoading: boolean;
+  setPokemon: (arg: PokemonDetails) => void;
 }
 
 export const PokemonList: React.FC<Props> = ({
   pokemons,
   isError,
-  isLoading
+  isLoading,
+  setPokemon
 }) => {
   const showNoPokemons = !pokemons.length && !isError && !isLoading;
-  const showPokemonsCards = !!pokemons.length && !isLoading;
+  const showPokemonsCards = !!pokemons.length && !isLoading && !isError;
 
   return (
     <div className="pokemons-list">
-      {!pokemons.length && isError && (
+      {isError && !isLoading && (
         <ErrorMessage text={ErrorMessages.OnLoad} />
       )}
 
       {showNoPokemons && <ErrorMessage text={ErrorMessages.OnEmptyData} />}
 
-      <div className="row gy-4 pokemons-items">
+      <div className="row gy-4 pokemons-items justify-content-center">
         {showPokemonsCards
-        && pokemons.map((pokemon: PokemonDetails) => <PokemonCard pokemon={pokemon} key={pokemon.id}/>)}
+          && pokemons.map((pokemon: PokemonDetails) => {
+            return (<PokemonCard pokemon={pokemon} key={pokemon.id} setPokemon={setPokemon} />)
+        })}
 
         {isLoading && <Loader />}
       </div>

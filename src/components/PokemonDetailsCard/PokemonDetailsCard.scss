@@ -1,0 +1,48 @@
+.pokemon-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  padding: 25px;
+  margin-bottom: 40px;
+  border: solid 1px	#989898;
+  border-radius: 8px;
+  transition: box-shadow 0.5s;
+  position: sticky;
+  top: 20px;
+
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &_image {
+    width: 100%;
+    margin-bottom: 24px;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &_title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &_table {
+    align-self: center;
+    margin-bottom: 16px;
+    width: 70%;
+  }
+
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    border-bottom: solid 1px	#989898;
+  }
+}
+

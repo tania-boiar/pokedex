@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import './ErrorMessage.scss';
 import { ErrorMessages } from '../../types/ErrorMessages';
 
 type Props = {

@@ -7,6 +7,7 @@
   padding: 25px;
   border: solid 1px	#989898;
   border-radius: 8px;
+  cursor: pointer;
   transition: box-shadow 0.5s;
 
   &:hover {
@@ -24,10 +25,6 @@
     }
   }
 
-  &_image-link {
-    align-self: center;
-  }
-
   &_title {
     text-align: center;
     margin-bottom: 20px;
@@ -41,7 +38,7 @@
   &_types {
     display: flex;
     justify-content: space-around;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 16px;
     padding-bottom: 8px;
   }
@@ -50,7 +47,54 @@
     background-color: #4DA4EA;
     border-radius: 8px;
     color: white;
-    padding: 6px 16px;
+    padding: 6px 14px;
   }
 }
 
+.grass {
+  background-color: #097969;
+};
+
+.water {
+  background-color: #0f5e9c;
+}
+
+.poison {
+  background-color: #cb99c9;
+}
+
+.fire {
+  background-color: #DC143C;
+}
+
+.electric {
+  background-color: #FFBF00;
+}
+
+.bug {
+  background-color: #DAA06D;
+}
+
+.flying {
+  background-color: #87ceeb;
+}
+
+.ground {
+  background-color: #bfaaaa;
+}
+
+.fighting {
+  background-color: cadetblue;
+}
+
+.steel {
+  background-color: silver;
+}
+
+.fairy {
+  background-color: pink;
+}
+
+.normal {
+  background-color: #9ED2C6;
+}
