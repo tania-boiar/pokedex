@@ -6,12 +6,12 @@ By default, you could see 12 Pokemon Cards.
 With a click of the "Load More" button, another chunk of the list is loaded and displayed on the page.
 Pokemon details are displayed after clicking on the Pokemon Card.
 
-Demo [https://tania-boiar.github.io/pokedex/]
+[Demo] (https://tania-boiar.github.io/pokedex/)
 
 ## Technologies Used
 
 This project uses React, TypeScript, HTML, SCSS, bootstrap grid
-API [https://pokeapi.co/]
+[API] (https://pokeapi.co/)
 
 ## Getting Started with Create React App
 
