@@ -1,5 +1,5 @@
 import './App.css';
-import { PokemonsPage } from './PokemonsPage';
+import { PokemonsPage } from './components/PokemonsPage';
 
 function App() {
   return (

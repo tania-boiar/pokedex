@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const BASE_URL = 'https://pokeapi.co/api/v2/';
-
 
 type RequestMethod = 'GET';
 

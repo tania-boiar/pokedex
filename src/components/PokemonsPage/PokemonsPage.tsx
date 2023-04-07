@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { getCards } from '../../api/fetchList';
+import { PokemonList } from '../PokemonList';
+import { getDetails } from '../../api/fetchDetails';
+import { PokemonDetails } from '../../types/PokemonDetails';
 import './PokemonsPage.scss';
-import { PokemonDetails } from '../types/PokemonDetails';
-import { getCards } from '../api/fetchList';
-import { getDetails } from '../api/fetchDetails';
-import { PokemonList } from '../components/PokemonList';
-import { PokemonDetailsCard } from '../components/PokemonDetailsCard';
+import { PokemonDetailsCard } from '../PokemonDetailsCard';
 
 export const PokemonsPage: React.FC = () => {
-  const limit = 12;
   const [pokemons, setPokemons] = useState<PokemonDetails[]>([]);
+  const [limit] = useState<number>(12);
   const [offset, setOffset] = useState<number>(0)
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [pokemon, setPokemon] = useState<PokemonDetails | null>(null);
+  const [pokemon, setPokemon] = useState<PokemonDetails>();
 
   const loadCards = async () => {
+    setIsLoading(true);
+
     try {
       setIsError(false);
       const pokemonsFromServer = await getCards(
@@ -50,6 +52,7 @@ export const PokemonsPage: React.FC = () => {
   return (
     <div className="pokemons">
       <div className="container">
+
         <div className="row">
           <div className="col-12">
             <h1 className="pokemons-title">Pokedex</h1>
@@ -60,14 +63,13 @@ export const PokemonsPage: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 ">
-            {!isLoading && <PokemonList
+            <PokemonList
               pokemons={pokemons}
               isError={isError}
               isLoading={isLoading}
               setPokemon={setPokemon}
-            />}
+            />
           </div>
-
           <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 flex-wrap">
             {pokemon && <PokemonDetailsCard pokemon={pokemon} />}
           </div>

@@ -10,7 +10,7 @@ Pokemon details are displayed after clicking on the Pokemon Card.
 
 ## Technologies Used
 
-This project uses React, TypeScript, HTML, SCSS, bootstrap grid
+This project uses React, TypeScript, HTML, SCSS, bootstrap grid,
 [API](https://pokeapi.co/)
 
 ## Getting Started with Create React App

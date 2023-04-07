@@ -1,6 +1,7 @@
 import React from 'react';
 import './PokemonDetailsCard.scss';
 import { PokemonDetails } from '../../types/PokemonDetails';
+import { convertName } from '../../helpers/convertStatName';
 
 type Props = {
   pokemon: PokemonDetails;
@@ -27,20 +28,8 @@ export const PokemonDetailsCard: React.FC<Props> = ({ pokemon }) => {
           })}
 
             {stats.map((stat: any) => {
-              let name = stat.stat.name;
-              switch (name) {
-                case 'hp':
-                  name = 'HP';
-                  break;
-                case 'special-attack':
-                  name = 'SP Attack';
-                  break;
-                case 'special-defense':
-                  name = 'SP Defence';
-                  break;
-                default:
-                  name = stat.stat.name;
-              }
+              const name = convertName(stat.stat.name);
+            
               return (<div className="pokemon-details_row">
                 <span>{name}</span>
                 <span>{stat.base_stat}</span>
