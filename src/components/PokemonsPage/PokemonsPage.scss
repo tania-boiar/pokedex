@@ -13,7 +13,37 @@ $grid-gutter-width: 20px;
   margin-bottom: 40px;
 }
 
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .flex-wrap {
   display: flex;
   justify-content: center;
+}
+
+.filter-wrap {
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+@include media-breakpoint-up(sm) {
+  .filter-wrap {
+    justify-content: flex-start;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .content-wrap {
+    align-items: flex-start;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .content-row-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }

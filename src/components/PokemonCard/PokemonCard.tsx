@@ -9,13 +9,19 @@ type Props = {
 
 export const PokemonCard: React.FC<Props> = ({ pokemon, setPokemon }) => {
   const {name, sprites, types} = pokemon;
+  const defaultImg = 'https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_960_720.png';
   
   return (
-    <div className="col-xl-4 col-lg-6 col-md-8 col-sm-8">
+    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6">
       <div className="pokemon-card" onClick={() => setPokemon(pokemon)}>
-        <img className="pokemon-card_image" src={sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+        <img 
+          className="pokemon-card_image" 
+          src={sprites.other["official-artwork"].front_default || defaultImg} 
+          alt={pokemon.name} 
+        />
+        
         <div className="pokemon-card_descriptions">
-          <h3 className="pokemon-card_title">{name}</h3>
+          <h4 className="pokemon-card_title">{name}</h4>
           <div className="pokemon-card_types">
             {types.map((type: any) => {
               return (
