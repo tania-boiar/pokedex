@@ -7,7 +7,7 @@ type Props = {
 
 export const ErrorMessage: React.FC<Props> = memo(({ text }) => (
   <>
-    <h2 className="heading-2 error-msg">{text}</h2>
+    <h2 className="heading-2">{text}</h2>
 
     {text === ErrorMessages.OnLoad && (
       <button

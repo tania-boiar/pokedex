@@ -1,7 +1,6 @@
 import { ErrorMessages } from '../../types/ErrorMessages';
 import { PokemonDetails } from '../../types/PokemonDetails';
 import { ErrorMessage } from '../ErrorMessage';
-import { Loader } from '../Loader';
 import { PokemonCard } from '../PokemonCard';
 import './PokemonList.scss';
 
@@ -34,8 +33,6 @@ export const PokemonList: React.FC<Props> = ({
           && pokemons.map((pokemon: PokemonDetails) => {
             return (<PokemonCard pokemon={pokemon} key={pokemon.id} setPokemon={setPokemon} />)
         })}
-
-        {isLoading && <Loader />}
       </div>
       
     </div>
