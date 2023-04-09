@@ -89,6 +89,7 @@ export const PokemonsPage: React.FC = () => {
     } else if (typeId === 'all' && offset === 0) {
       setPokemons([]);
       loadCards();
+      return;
     }
 
     setIsLoading(true);
